@@ -1,0 +1,70 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://raw.githubusercontent.com/api-evangelist/google-cloud-profiler/refs/heads/main/json-schema/json-schema.yml
+title: Google Cloud Profiler Schema
+description: Schema defining the core resources of the Google Cloud Profiler API.
+type: object
+properties:
+  profile:
+    $ref: '#/$defs/Profile'
+  deployment:
+    $ref: '#/$defs/Deployment'
+$defs:
+  Profile:
+    type: object
+    title: Profile
+    description: A profile resource representing collected profiling data for an application.
+    properties:
+      name:
+        type: string
+        description: The resource name of the profile.
+      profileType:
+        type: string
+        description: The type of profile data collected.
+        enum:
+          - CPU
+          - WALL
+          - HEAP
+          - THREADS
+          - CONTENTION
+          - PEAK_HEAP
+          - HEAP_ALLOC
+      deployment:
+        $ref: '#/$defs/Deployment'
+      duration:
+        type: string
+        description: Duration of the profiling session.
+      profileBytes:
+        type: string
+        contentEncoding: base64
+        description: The profile data in compressed pprof format.
+      labels:
+        type: object
+        additionalProperties:
+          type: string
+        description: Labels associated with the profile.
+      startTime:
+        type: string
+        format: date-time
+        description: The time when the profile was collected.
+    required:
+      - name
+      - profileType
+  Deployment:
+    type: object
+    title: Deployment
+    description: Identifies the deployment of the profiled application.
+    properties:
+      projectId:
+        type: string
+        description: The Google Cloud project ID.
+      target:
+        type: string
+        description: The service name or target of the deployment.
+      labels:
+        type: object
+        additionalProperties:
+          type: string
+        description: Labels identifying the deployment environment.
+    required:
+      - projectId
+      - target

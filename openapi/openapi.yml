@@ -1,0 +1,209 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud Profiler API
+  description: >-
+    The Cloud Profiler API enables creating, listing, and managing profiling
+    profiles for applications. It supports creating profiles for CPU, heap,
+    wall time, contention, and thread profiling types, and provides access
+    to collected profiling data for performance analysis.
+  version: v2
+  contact:
+    name: Google Cloud
+    url: https://cloud.google.com/profiler
+externalDocs:
+  description: Google Cloud Profiler Documentation
+  url: https://cloud.google.com/profiler/docs
+servers:
+  - url: https://cloudprofiler.googleapis.com
+paths:
+  /v2/projects/{projectId}/profiles:
+    post:
+      operationId: createProfile
+      summary: Create Profile
+      description: >-
+        Creates a new profile resource in the online mode. The server ensures
+        that the new profiles are created at a constant rate per deployment
+        to avoid overwhelming the agent.
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProfileRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Profile'
+  /v2/projects/{projectId}/profiles:createOffline:
+    post:
+      operationId: createOfflineProfile
+      summary: Create Offline Profile
+      description: >-
+        Creates a new profile resource in the offline mode. The client
+        provides the profile data and the server responds with the created
+        profile.
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Profile'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Profile'
+  /v2/projects/{projectId}/profiles/{profileId}:
+    patch:
+      operationId: updateProfile
+      summary: Update Profile
+      description: >-
+        Updates the profile bytes and labels on the profile resource created
+        in the online mode.
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: profileId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Profile'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Profile'
+  /v2/projects/{projectId}/profiles:list:
+    get:
+      operationId: listProfiles
+      summary: List Profiles
+      description: Lists profiles collected for the specified deployment.
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListProfilesResponse'
+components:
+  schemas:
+    Profile:
+      type: object
+      description: A profile resource representing collected profiling data.
+      properties:
+        name:
+          type: string
+          description: The resource name of the profile.
+        profileType:
+          type: string
+          description: The type of profile collected.
+          enum:
+            - CPU
+            - WALL
+            - HEAP
+            - THREADS
+            - CONTENTION
+            - PEAK_HEAP
+            - HEAP_ALLOC
+        deployment:
+          $ref: '#/components/schemas/Deployment'
+        duration:
+          type: string
+          description: Duration of the profiling session.
+        profileBytes:
+          type: string
+          format: byte
+          description: The profile data in compressed pprof format.
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        startTime:
+          type: string
+          format: date-time
+    Deployment:
+      type: object
+      description: Deployment details for the profiled application.
+      properties:
+        projectId:
+          type: string
+          description: The project ID.
+        target:
+          type: string
+          description: The target of the deployment (service name).
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+          description: Labels for the deployment (e.g., zone, version).
+    CreateProfileRequest:
+      type: object
+      properties:
+        deployment:
+          $ref: '#/components/schemas/Deployment'
+        profileType:
+          type: array
+          items:
+            type: string
+            enum:
+              - CPU
+              - WALL
+              - HEAP
+              - THREADS
+              - CONTENTION
+              - PEAK_HEAP
+              - HEAP_ALLOC
+      required:
+        - deployment
+        - profileType
+    ListProfilesResponse:
+      type: object
+      properties:
+        profiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Profile'
+        nextPageToken:
+          type: string

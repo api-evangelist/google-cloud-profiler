@@ -1,0 +1,22 @@
+"@context":
+  "@vocab": https://schema.org/
+  gcloud: https://cloud.google.com/profiler/docs/reference/rest/v2/
+  name: schema:name
+  description: schema:description
+  url: schema:url
+  Profile:
+    "@id": gcloud:projects.profiles
+    "@type": schema:Dataset
+    name: schema:name
+    profileType: schema:measurementTechnique
+    deployment: schema:about
+    duration: schema:duration
+    profileBytes: schema:contentUrl
+    labels: schema:keywords
+    startTime: schema:startTime
+  Deployment:
+    "@id": gcloud:Deployment
+    "@type": schema:SoftwareApplication
+    projectId: schema:identifier
+    target: schema:name
+    labels: schema:keywords
