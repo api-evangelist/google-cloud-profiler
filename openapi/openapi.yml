@@ -19,7 +19,7 @@ paths:
   /v2/projects/{projectId}/profiles:
     post:
       operationId: createProfile
-      summary: Create Profile
+      summary: Google Cloud Profiler Create Profile
       description: >-
         Creates a new profile resource in the online mode. The server ensures
         that the new profiles are created at a constant rate per deployment
@@ -46,7 +46,7 @@ paths:
   /v2/projects/{projectId}/profiles:createOffline:
     post:
       operationId: createOfflineProfile
-      summary: Create Offline Profile
+      summary: Google Cloud Profiler Create Offline Profile
       description: >-
         Creates a new profile resource in the offline mode. The client
         provides the profile data and the server responds with the created
@@ -73,7 +73,7 @@ paths:
   /v2/projects/{projectId}/profiles/{profileId}:
     patch:
       operationId: updateProfile
-      summary: Update Profile
+      summary: Google Cloud Profiler Update Profile
       description: >-
         Updates the profile bytes and labels on the profile resource created
         in the online mode.
@@ -104,7 +104,7 @@ paths:
   /v2/projects/{projectId}/profiles:list:
     get:
       operationId: listProfiles
-      summary: List Profiles
+      summary: Google Cloud Profiler List Profiles
       description: Lists profiles collected for the specified deployment.
       parameters:
         - name: projectId
