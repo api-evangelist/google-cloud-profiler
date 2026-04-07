@@ -43,6 +43,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Profile'
+      tags:
+        - Projects
   /v2/projects/{projectId}/profiles:createOffline:
     post:
       operationId: createOfflineProfile
@@ -70,6 +72,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Profile'
+      tags:
+        - Projects
   /v2/projects/{projectId}/profiles/{profileId}:
     patch:
       operationId: updateProfile
@@ -101,6 +105,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Profile'
+      tags:
+        - Projects
   /v2/projects/{projectId}/profiles:list:
     get:
       operationId: listProfiles
@@ -127,6 +133,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListProfilesResponse'
+      tags:
+        - Projects
 components:
   schemas:
     Profile:
@@ -207,3 +215,5 @@ components:
             $ref: '#/components/schemas/Profile'
         nextPageToken:
           type: string
+tags:
+  - name: Projects
