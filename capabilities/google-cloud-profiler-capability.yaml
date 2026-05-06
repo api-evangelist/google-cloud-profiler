@@ -1,0 +1,236 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Cloud Profiler API
+  description: The Cloud Profiler API enables creating, listing, and managing profiling profiles for applications. It supports
+    creating profiles for CPU, heap, wall time, contention, and thread profiling types, and provides access to collected profiling
+    data for performance analysis.
+  tags:
+  - Google
+  - Cloud
+  - Profiler
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: google-cloud-profiler
+    baseUri: https://cloudprofiler.googleapis.com
+    description: Google Cloud Profiler API HTTP API.
+    resources:
+    - name: v2-projects-projectid-profiles
+      path: /v2/projects/{projectId}/profiles
+      operations:
+      - name: createprofile
+        method: POST
+        description: Google Cloud Profiler Create Profile
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v2-projects-projectid-profiles-createoffline
+      path: /v2/projects/{projectId}/profiles:createOffline
+      operations:
+      - name: createofflineprofile
+        method: POST
+        description: Google Cloud Profiler Create Offline Profile
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v2-projects-projectid-profiles-profileid
+      path: /v2/projects/{projectId}/profiles/{profileId}
+      operations:
+      - name: updateprofile
+        method: PATCH
+        description: Google Cloud Profiler Update Profile
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: profileId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v2-projects-projectid-profiles-list
+      path: /v2/projects/{projectId}/profiles:list
+      operations:
+      - name: listprofiles
+        method: GET
+        description: Google Cloud Profiler List Profiles
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: pageSize
+          in: query
+          type: integer
+        - name: pageToken
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: google-cloud-profiler-rest
+    description: REST adapter for Google Cloud Profiler API.
+    resources:
+    - path: /v2/projects/{projectId}/profiles
+      name: createprofile
+      operations:
+      - method: POST
+        name: createprofile
+        description: Google Cloud Profiler Create Profile
+        call: google-cloud-profiler.createprofile
+        with:
+          projectId: rest.projectId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v2/projects/{projectId}/profiles:createOffline
+      name: createofflineprofile
+      operations:
+      - method: POST
+        name: createofflineprofile
+        description: Google Cloud Profiler Create Offline Profile
+        call: google-cloud-profiler.createofflineprofile
+        with:
+          projectId: rest.projectId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v2/projects/{projectId}/profiles/{profileId}
+      name: updateprofile
+      operations:
+      - method: PATCH
+        name: updateprofile
+        description: Google Cloud Profiler Update Profile
+        call: google-cloud-profiler.updateprofile
+        with:
+          projectId: rest.projectId
+          profileId: rest.profileId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v2/projects/{projectId}/profiles:list
+      name: listprofiles
+      operations:
+      - method: GET
+        name: listprofiles
+        description: Google Cloud Profiler List Profiles
+        call: google-cloud-profiler.listprofiles
+        with:
+          projectId: rest.projectId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: google-cloud-profiler-mcp
+    transport: http
+    description: MCP adapter for Google Cloud Profiler API for AI agent use.
+    tools:
+    - name: createprofile
+      description: Google Cloud Profiler Create Profile
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-profiler.createprofile
+      with:
+        projectId: tools.projectId
+      inputParameters:
+      - name: projectId
+        type: string
+        description: projectId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createofflineprofile
+      description: Google Cloud Profiler Create Offline Profile
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-profiler.createofflineprofile
+      with:
+        projectId: tools.projectId
+      inputParameters:
+      - name: projectId
+        type: string
+        description: projectId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updateprofile
+      description: Google Cloud Profiler Update Profile
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-profiler.updateprofile
+      with:
+        projectId: tools.projectId
+        profileId: tools.profileId
+      inputParameters:
+      - name: projectId
+        type: string
+        description: projectId
+        required: true
+      - name: profileId
+        type: string
+        description: profileId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listprofiles
+      description: Google Cloud Profiler List Profiles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-profiler.listprofiles
+      with:
+        projectId: tools.projectId
+        pageSize: tools.pageSize
+        pageToken: tools.pageToken
+      inputParameters:
+      - name: projectId
+        type: string
+        description: projectId
+        required: true
+      - name: pageSize
+        type: integer
+        description: pageSize
+      - name: pageToken
+        type: string
+        description: pageToken
+      outputParameters:
+      - type: object
+        mapping: $.
