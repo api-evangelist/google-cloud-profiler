@@ -1,0 +1,117 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Cloud Profiler API",
+    "version": "v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Cloud Profiler Create Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cloudprofiler.googleapis.com/v2/projects/:projectId/profiles",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new profile resource in the online mode. The server ensures that the new profiles are created at a constant rate per deployment to avoid overwhelming the agent."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Profiler Create Offline Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cloudprofiler.googleapis.com/v2/projects/:projectId/profiles:createOffline",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new profile resource in the offline mode. The client provides the profile data and the server responds with the created profile."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Profiler Update Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://cloudprofiler.googleapis.com/v2/projects/:projectId/profiles/:profileId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "profileId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the profile bytes and labels on the profile resource created in the online mode."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Profiler List Profiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cloudprofiler.googleapis.com/v2/projects/:projectId/profiles:list",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists profiles collected for the specified deployment."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
