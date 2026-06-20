@@ -5,7 +5,7 @@ description: >-
   allocation in production applications. It attributes resource consumption to specific source code sections, supports
   Go, Java, Node.js, and Python, and provides flame graph visualizations for identifying performance bottlenecks with
   less than 5 percent overhead.
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/google-cloud-profiler/refs/heads/main/apis.yml
 created: '2026-03-13'
 modified: '2026-05-19'
