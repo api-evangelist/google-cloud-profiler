@@ -1,35 +1,27 @@
 openapi: 3.1.0
 info:
-  title: Google Cloud Profiler API
-  description: >-
-    The Cloud Profiler API enables creating, listing, and managing profiling
-    profiles for applications. It supports creating profiles for CPU, heap,
-    wall time, contention, and thread profiling types, and provides access
-    to collected profiling data for performance analysis.
+  title: Google Cloud Profiler Projects API
+  description: The Cloud Profiler API enables creating, listing, and managing profiling profiles for applications. It supports creating profiles for CPU, heap, wall time, contention, and thread profiling types, and provides access to collected profiling data for performance analysis.
   version: v2
   contact:
     name: Google Cloud
     url: https://cloud.google.com/profiler
-externalDocs:
-  description: Google Cloud Profiler Documentation
-  url: https://cloud.google.com/profiler/docs
 servers:
-  - url: https://cloudprofiler.googleapis.com
+- url: https://cloudprofiler.googleapis.com
+tags:
+- name: Projects
 paths:
   /v2/projects/{projectId}/profiles:
     post:
       operationId: createProfile
       summary: Google Cloud Profiler Create Profile
-      description: >-
-        Creates a new profile resource in the online mode. The server ensures
-        that the new profiles are created at a constant rate per deployment
-        to avoid overwhelming the agent.
+      description: Creates a new profile resource in the online mode. The server ensures that the new profiles are created at a constant rate per deployment to avoid overwhelming the agent.
       parameters:
-        - name: projectId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -44,21 +36,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/Profile'
       tags:
-        - Projects
+      - Projects
   /v2/projects/{projectId}/profiles:createOffline:
     post:
       operationId: createOfflineProfile
       summary: Google Cloud Profiler Create Offline Profile
-      description: >-
-        Creates a new profile resource in the offline mode. The client
-        provides the profile data and the server responds with the created
-        profile.
+      description: Creates a new profile resource in the offline mode. The client provides the profile data and the server responds with the created profile.
       parameters:
-        - name: projectId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -73,25 +62,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/Profile'
       tags:
-        - Projects
+      - Projects
   /v2/projects/{projectId}/profiles/{profileId}:
     patch:
       operationId: updateProfile
       summary: Google Cloud Profiler Update Profile
-      description: >-
-        Updates the profile bytes and labels on the profile resource created
-        in the online mode.
+      description: Updates the profile bytes and labels on the profile resource created in the online mode.
       parameters:
-        - name: projectId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: profileId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: profileId
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -106,26 +93,26 @@ paths:
               schema:
                 $ref: '#/components/schemas/Profile'
       tags:
-        - Projects
+      - Projects
   /v2/projects/{projectId}/profiles:list:
     get:
       operationId: listProfiles
       summary: Google Cloud Profiler List Profiles
       description: Lists profiles collected for the specified deployment.
       parameters:
-        - name: projectId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          schema:
-            type: integer
-        - name: pageToken
-          in: query
-          schema:
-            type: string
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+      - name: pageToken
+        in: query
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -134,9 +121,38 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListProfilesResponse'
       tags:
-        - Projects
+      - Projects
 components:
   schemas:
+    CreateProfileRequest:
+      type: object
+      properties:
+        deployment:
+          $ref: '#/components/schemas/Deployment'
+        profileType:
+          type: array
+          items:
+            type: string
+            enum:
+            - CPU
+            - WALL
+            - HEAP
+            - THREADS
+            - CONTENTION
+            - PEAK_HEAP
+            - HEAP_ALLOC
+      required:
+      - deployment
+      - profileType
+    ListProfilesResponse:
+      type: object
+      properties:
+        profiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Profile'
+        nextPageToken:
+          type: string
     Profile:
       type: object
       description: A profile resource representing collected profiling data.
@@ -148,13 +164,13 @@ components:
           type: string
           description: The type of profile collected.
           enum:
-            - CPU
-            - WALL
-            - HEAP
-            - THREADS
-            - CONTENTION
-            - PEAK_HEAP
-            - HEAP_ALLOC
+          - CPU
+          - WALL
+          - HEAP
+          - THREADS
+          - CONTENTION
+          - PEAK_HEAP
+          - HEAP_ALLOC
         deployment:
           $ref: '#/components/schemas/Deployment'
         duration:
@@ -186,34 +202,6 @@ components:
           additionalProperties:
             type: string
           description: Labels for the deployment (e.g., zone, version).
-    CreateProfileRequest:
-      type: object
-      properties:
-        deployment:
-          $ref: '#/components/schemas/Deployment'
-        profileType:
-          type: array
-          items:
-            type: string
-            enum:
-              - CPU
-              - WALL
-              - HEAP
-              - THREADS
-              - CONTENTION
-              - PEAK_HEAP
-              - HEAP_ALLOC
-      required:
-        - deployment
-        - profileType
-    ListProfilesResponse:
-      type: object
-      properties:
-        profiles:
-          type: array
-          items:
-            $ref: '#/components/schemas/Profile'
-        nextPageToken:
-          type: string
-tags:
-  - name: Projects
+externalDocs:
+  description: Google Cloud Profiler Documentation
+  url: https://cloud.google.com/profiler/docs
