@@ -5,7 +5,19 @@ description: >-
   allocation in production applications. It attributes resource consumption to specific source code sections, supports
   Go, Java, Node.js, and Python, and provides flame graph visualizations for identifying performance bottlenecks with
   less than 5 percent overhead.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/google-cloud-profiler.png
 url: https://raw.githubusercontent.com/api-evangelist/google-cloud-profiler/refs/heads/main/apis.yml
 created: '2026-03-13'
 modified: '2026-05-19'
@@ -20,27 +32,29 @@ tags:
   - Performance
   - Profiling
 apis:
-  - name: Google Cloud Profiler API
-    description: >-
-      The Cloud Profiler API enables creating, listing, and managing profiling profiles for applications. It supports
-      creating profiles for CPU, heap, wall time, contention, and thread profiling types, and provides access to
-      collected profiling data for performance analysis.
-    humanURL: https://cloud.google.com/profiler/docs
-    baseURL: https://cloudprofiler.googleapis.com
-    properties:
-      - type: Documentation
-        url: https://cloud.google.com/profiler/docs/reference/rest
-      - type: OpenAPI
-        url: openapi/openapi.yml
-      - type: Authentication
-        url: https://cloud.google.com/docs/authentication
-      - type: GettingStarted
-        url: https://cloud.google.com/profiler/docs/about-profiler
-      - type: JSONSchema
-        url: json-schema/json-schema.yml
-      - type: JSONLDContext
-        url: json-ld/json-ld.yml
+- aid: google-cloud-profiler:google-cloud-profiler-projects-api
+  name: Google Cloud Profiler Projects API
+  description: The Projects API from Google Cloud Profiler — 4 operation(s) for projects.
+  humanURL: https://cloud.google.com/profiler/docs
+  baseURL: https://cloudprofiler.googleapis.com
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/google-cloud-profiler-projects-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.google.com/profiler/docs/reference/rest
+  - type: Authentication
+    url: https://cloud.google.com/docs/authentication
+  - type: GettingStarted
+    url: https://cloud.google.com/profiler/docs/about-profiler
+  - type: JSONSchema
+    url: json-schema/json-schema.yml
+  - type: JSONLDContext
+    url: json-ld/json-ld.yml
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/google-cloud-profiler/overview
   - type: AgenticAccess
     url: agentic-access/google-cloud-profiler-agentic-access.yml
   - type: VulnerabilityDisclosure
