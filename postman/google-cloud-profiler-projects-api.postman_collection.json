@@ -1,0 +1,546 @@
+{
+  "info": {
+    "_postman_id": "df05daa2-e6d0-4655-98a2-f4676e7f2e43",
+    "name": "Google Cloud Profiler Projects API",
+    "description": "The Cloud Profiler API enables creating, listing, and managing profiling profiles for applications. It supports creating profiles for CPU, heap, wall time, contention, and thread profiling types, and provides access to collected profiling data for performance analysis.\n\nContact Support:\n Name: Google Cloud",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:48:09.000Z",
+    "updatedAt": "2026-07-28T01:48:09.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-df05daa2-e6d0-4655-98a2-f4676e7f2e43"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "projects",
+          "item": [
+            {
+              "name": "{projectId}",
+              "item": [
+                {
+                  "name": "profiles",
+                  "item": [
+                    {
+                      "name": "{profileId}",
+                      "item": [
+                        {
+                          "name": "Google Cloud Profiler Update Profile",
+                          "id": "70ae2d5c-2fbc-466a-a44b-1d1d6e9f2e8f",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"profileType\": \"HEAP_ALLOC\",\n  \"deployment\": {\n    \"projectId\": \"<string>\",\n    \"target\": \"<string>\",\n    \"labels\": {\n      \"in_0\": \"<string>\",\n      \"dolor3_9\": \"<string>\"\n    }\n  },\n  \"duration\": \"<string>\",\n  \"profileBytes\": \"<string>\",\n  \"labels\": {\n    \"dolore_0\": \"<string>\",\n    \"in8\": \"<string>\"\n  },\n  \"startTime\": \"<dateTime>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/projects/:projectId/profiles/:profileId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "projects",
+                                ":projectId",
+                                "profiles",
+                                ":profileId"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "0f0b2609-6944-459c-a7e8-102dff1fd954",
+                                  "key": "projectId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "4196deeb-ea40-40bc-8cd0-e20aec94b302",
+                                  "key": "profileId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Updates the profile bytes and labels on the profile resource created in the online mode."
+                          },
+                          "response": [
+                            {
+                              "id": "f3795575-f1a2-4dd9-a6bc-2e2a116fe6b9",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"profileType\": \"HEAP_ALLOC\",\n  \"deployment\": {\n    \"projectId\": \"<string>\",\n    \"target\": \"<string>\",\n    \"labels\": {\n      \"in_0\": \"<string>\",\n      \"dolor3_9\": \"<string>\"\n    }\n  },\n  \"duration\": \"<string>\",\n  \"profileBytes\": \"<string>\",\n  \"labels\": {\n    \"dolore_0\": \"<string>\",\n    \"in8\": \"<string>\"\n  },\n  \"startTime\": \"<dateTime>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/projects/:projectId/profiles/:profileId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "projects",
+                                    ":projectId",
+                                    "profiles",
+                                    ":profileId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "profileId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"name\": \"<string>\",\n  \"profileType\": \"HEAP_ALLOC\",\n  \"deployment\": {\n    \"projectId\": \"<string>\",\n    \"target\": \"<string>\",\n    \"labels\": {\n      \"in_0\": \"<string>\",\n      \"dolor3_9\": \"<string>\"\n    }\n  },\n  \"duration\": \"<string>\",\n  \"profileBytes\": \"<string>\",\n  \"labels\": {\n    \"dolore_0\": \"<string>\",\n    \"in8\": \"<string>\"\n  },\n  \"startTime\": \"<dateTime>\"\n}",
+                              "createdAt": "2026-07-28T01:48:09.000Z",
+                              "updatedAt": "2026-07-28T01:48:09.000Z",
+                              "uid": "35240-f3795575-f1a2-4dd9-a6bc-2e2a116fe6b9"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:48:09.000Z",
+                          "updatedAt": "2026-07-28T01:48:09.000Z",
+                          "uid": "35240-70ae2d5c-2fbc-466a-a44b-1d1d6e9f2e8f"
+                        }
+                      ],
+                      "id": "bd08c6c9-ff2d-45f2-be89-09adae6a1932",
+                      "createdAt": "2026-07-28T01:48:09.000Z",
+                      "updatedAt": "2026-07-28T01:48:09.000Z",
+                      "uid": "35240-bd08c6c9-ff2d-45f2-be89-09adae6a1932"
+                    },
+                    {
+                      "name": "Google Cloud Profiler Create Profile",
+                      "id": "3c545aa3-52f2-474f-8269-1a9c9f7a4a85",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"deployment\": {\n    \"projectId\": \"<string>\",\n    \"target\": \"<string>\",\n    \"labels\": {\n      \"est__\": \"<string>\",\n      \"laborum0\": \"<string>\",\n      \"qui8\": \"<string>\",\n      \"commodo_b\": \"<string>\"\n    }\n  },\n  \"profileType\": [\n    \"HEAP\",\n    \"CONTENTION\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/projects/:projectId/profiles",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "projects",
+                            ":projectId",
+                            "profiles"
+                          ],
+                          "variable": [
+                            {
+                              "id": "17e655df-1772-41a8-91e0-9b3802db41c3",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Creates a new profile resource in the online mode. The server ensures that the new profiles are created at a constant rate per deployment to avoid overwhelming the agent."
+                      },
+                      "response": [
+                        {
+                          "id": "d0a14302-ceca-4e84-977a-7a379fc0fb70",
+                          "name": "Successful response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"deployment\": {\n    \"projectId\": \"<string>\",\n    \"target\": \"<string>\",\n    \"labels\": {\n      \"est__\": \"<string>\",\n      \"laborum0\": \"<string>\",\n      \"qui8\": \"<string>\",\n      \"commodo_b\": \"<string>\"\n    }\n  },\n  \"profileType\": [\n    \"HEAP\",\n    \"CONTENTION\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/projects/:projectId/profiles",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "projects",
+                                ":projectId",
+                                "profiles"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"name\": \"<string>\",\n  \"profileType\": \"HEAP_ALLOC\",\n  \"deployment\": {\n    \"projectId\": \"<string>\",\n    \"target\": \"<string>\",\n    \"labels\": {\n      \"in_0\": \"<string>\",\n      \"dolor3_9\": \"<string>\"\n    }\n  },\n  \"duration\": \"<string>\",\n  \"profileBytes\": \"<string>\",\n  \"labels\": {\n    \"dolore_0\": \"<string>\",\n    \"in8\": \"<string>\"\n  },\n  \"startTime\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-07-28T01:48:09.000Z",
+                          "updatedAt": "2026-07-28T01:48:09.000Z",
+                          "uid": "35240-d0a14302-ceca-4e84-977a-7a379fc0fb70"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:48:09.000Z",
+                      "updatedAt": "2026-07-28T01:48:09.000Z",
+                      "uid": "35240-3c545aa3-52f2-474f-8269-1a9c9f7a4a85"
+                    }
+                  ],
+                  "id": "ed535c5d-cc1a-455e-90b7-dff534e21d3d",
+                  "createdAt": "2026-07-28T01:48:09.000Z",
+                  "updatedAt": "2026-07-28T01:48:09.000Z",
+                  "uid": "35240-ed535c5d-cc1a-455e-90b7-dff534e21d3d"
+                },
+                {
+                  "name": "profiles:createOffline",
+                  "item": [
+                    {
+                      "name": "Google Cloud Profiler Create Offline Profile",
+                      "id": "46370868-6dec-4909-901f-b9c2c77cf3a7",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"profileType\": \"HEAP_ALLOC\",\n  \"deployment\": {\n    \"projectId\": \"<string>\",\n    \"target\": \"<string>\",\n    \"labels\": {\n      \"in_0\": \"<string>\",\n      \"dolor3_9\": \"<string>\"\n    }\n  },\n  \"duration\": \"<string>\",\n  \"profileBytes\": \"<string>\",\n  \"labels\": {\n    \"dolore_0\": \"<string>\",\n    \"in8\": \"<string>\"\n  },\n  \"startTime\": \"<dateTime>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/projects/:projectId/profiles:createOffline",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "projects",
+                            ":projectId",
+                            "profiles:createOffline"
+                          ],
+                          "variable": [
+                            {
+                              "id": "74e79707-28f0-40e3-9522-ce7851148355",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Creates a new profile resource in the offline mode. The client provides the profile data and the server responds with the created profile."
+                      },
+                      "response": [
+                        {
+                          "id": "9c98f810-d22f-49c1-9b6f-3ba9cb88b500",
+                          "name": "Successful response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"profileType\": \"HEAP_ALLOC\",\n  \"deployment\": {\n    \"projectId\": \"<string>\",\n    \"target\": \"<string>\",\n    \"labels\": {\n      \"in_0\": \"<string>\",\n      \"dolor3_9\": \"<string>\"\n    }\n  },\n  \"duration\": \"<string>\",\n  \"profileBytes\": \"<string>\",\n  \"labels\": {\n    \"dolore_0\": \"<string>\",\n    \"in8\": \"<string>\"\n  },\n  \"startTime\": \"<dateTime>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/projects/:projectId/profiles:createOffline",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "projects",
+                                ":projectId",
+                                "profiles:createOffline"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"name\": \"<string>\",\n  \"profileType\": \"HEAP_ALLOC\",\n  \"deployment\": {\n    \"projectId\": \"<string>\",\n    \"target\": \"<string>\",\n    \"labels\": {\n      \"in_0\": \"<string>\",\n      \"dolor3_9\": \"<string>\"\n    }\n  },\n  \"duration\": \"<string>\",\n  \"profileBytes\": \"<string>\",\n  \"labels\": {\n    \"dolore_0\": \"<string>\",\n    \"in8\": \"<string>\"\n  },\n  \"startTime\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-07-28T01:48:09.000Z",
+                          "updatedAt": "2026-07-28T01:48:09.000Z",
+                          "uid": "35240-9c98f810-d22f-49c1-9b6f-3ba9cb88b500"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:48:09.000Z",
+                      "updatedAt": "2026-07-28T01:48:09.000Z",
+                      "uid": "35240-46370868-6dec-4909-901f-b9c2c77cf3a7"
+                    }
+                  ],
+                  "id": "5a88e518-720e-49fd-b0d6-a45289e7031b",
+                  "createdAt": "2026-07-28T01:48:09.000Z",
+                  "updatedAt": "2026-07-28T01:48:09.000Z",
+                  "uid": "35240-5a88e518-720e-49fd-b0d6-a45289e7031b"
+                },
+                {
+                  "name": "profiles:list",
+                  "item": [
+                    {
+                      "name": "Google Cloud Profiler List Profiles",
+                      "id": "d13b5751-4709-45f2-91b2-922e50d8ba64",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/projects/:projectId/profiles:list?pageSize=<integer>&pageToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "projects",
+                            ":projectId",
+                            "profiles:list"
+                          ],
+                          "query": [
+                            {
+                              "key": "pageSize",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "pageToken",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "0bc71947-9195-498d-81a4-47a93f90008b",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Lists profiles collected for the specified deployment."
+                      },
+                      "response": [
+                        {
+                          "id": "e5c46ce3-6af9-45c2-a2ae-92634bf12dbf",
+                          "name": "Successful response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/projects/:projectId/profiles:list?pageSize=<integer>&pageToken=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "projects",
+                                ":projectId",
+                                "profiles:list"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageSize",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "pageToken",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"profiles\": [\n    {\n      \"name\": \"<string>\",\n      \"profileType\": \"PEAK_HEAP\",\n      \"deployment\": {\n        \"projectId\": \"<string>\",\n        \"target\": \"<string>\",\n        \"labels\": {\n          \"Ut_40\": \"<string>\"\n        }\n      },\n      \"duration\": \"<string>\",\n      \"profileBytes\": \"<string>\",\n      \"labels\": {\n        \"magna84d\": \"<string>\"\n      },\n      \"startTime\": \"<dateTime>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"profileType\": \"CONTENTION\",\n      \"deployment\": {\n        \"projectId\": \"<string>\",\n        \"target\": \"<string>\",\n        \"labels\": {\n          \"cupidatate_9\": \"<string>\",\n          \"utb2\": \"<string>\"\n        }\n      },\n      \"duration\": \"<string>\",\n      \"profileBytes\": \"<string>\",\n      \"labels\": {\n        \"inbc\": \"<string>\",\n        \"tempor3e\": \"<string>\",\n        \"mollitc_\": \"<string>\"\n      },\n      \"startTime\": \"<dateTime>\"\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:48:09.000Z",
+                          "updatedAt": "2026-07-28T01:48:09.000Z",
+                          "uid": "35240-e5c46ce3-6af9-45c2-a2ae-92634bf12dbf"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:48:09.000Z",
+                      "updatedAt": "2026-07-28T01:48:09.000Z",
+                      "uid": "35240-d13b5751-4709-45f2-91b2-922e50d8ba64"
+                    }
+                  ],
+                  "id": "fc8321c9-9f8b-4ba7-a8fa-86bf11a85ecc",
+                  "createdAt": "2026-07-28T01:48:09.000Z",
+                  "updatedAt": "2026-07-28T01:48:09.000Z",
+                  "uid": "35240-fc8321c9-9f8b-4ba7-a8fa-86bf11a85ecc"
+                }
+              ],
+              "id": "5f27ead2-ac59-4500-88c0-8062ea1c6180",
+              "createdAt": "2026-07-28T01:48:09.000Z",
+              "updatedAt": "2026-07-28T01:48:09.000Z",
+              "uid": "35240-5f27ead2-ac59-4500-88c0-8062ea1c6180"
+            }
+          ],
+          "id": "294d5ea7-6864-4b6c-8991-4491e07a8454",
+          "createdAt": "2026-07-28T01:48:09.000Z",
+          "updatedAt": "2026-07-28T01:48:09.000Z",
+          "uid": "35240-294d5ea7-6864-4b6c-8991-4491e07a8454"
+        }
+      ],
+      "id": "3ffcab3c-8aba-4e8b-99cc-bed049921e6a",
+      "createdAt": "2026-07-28T01:48:09.000Z",
+      "updatedAt": "2026-07-28T01:48:09.000Z",
+      "uid": "35240-3ffcab3c-8aba-4e8b-99cc-bed049921e6a"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cloudprofiler.googleapis.com"
+    }
+  ]
+}

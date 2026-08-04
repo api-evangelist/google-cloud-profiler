@@ -1,0 +1,14 @@
+{
+  "provider": "google-cloud-profiler",
+  "sources": [
+    "google-cloud-profiler-projects-api-openapi.yml"
+  ],
+  "outputs": [
+    "google-cloud-profiler-projects-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
