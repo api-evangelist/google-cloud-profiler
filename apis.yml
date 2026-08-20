@@ -38,6 +38,8 @@ apis:
   humanURL: https://cloud.google.com/profiler/docs
   baseURL: https://cloudprofiler.googleapis.com
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
