@@ -5,6 +5,18 @@ description: >-
   allocation in production applications. It attributes resource consumption to specific source code sections, supports
   Go, Java, Node.js, and Python, and provides flame graph visualizations for identifying performance bottlenecks with
   less than 5 percent overhead.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
