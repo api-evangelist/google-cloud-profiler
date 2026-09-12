@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Google Cloud Profiler Projects API
   description: The Cloud Profiler API enables creating, listing, and managing profiling profiles for applications. It supports creating profiles for CPU, heap, wall time, contention, and thread profiling types, and provides access to collected profiling data for performance analysis.
@@ -124,26 +124,6 @@ paths:
       - Projects
 components:
   schemas:
-    CreateProfileRequest:
-      type: object
-      properties:
-        deployment:
-          $ref: '#/components/schemas/Deployment'
-        profileType:
-          type: array
-          items:
-            type: string
-            enum:
-            - CPU
-            - WALL
-            - HEAP
-            - THREADS
-            - CONTENTION
-            - PEAK_HEAP
-            - HEAP_ALLOC
-      required:
-      - deployment
-      - profileType
     ListProfilesResponse:
       type: object
       properties:
@@ -153,6 +133,21 @@ components:
             $ref: '#/components/schemas/Profile'
         nextPageToken:
           type: string
+    Deployment:
+      type: object
+      description: Deployment details for the profiled application.
+      properties:
+        projectId:
+          type: string
+          description: The project ID.
+        target:
+          type: string
+          description: The target of the deployment (service name).
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+          description: Labels for the deployment (e.g., zone, version).
     Profile:
       type: object
       description: A profile resource representing collected profiling data.
@@ -187,21 +182,26 @@ components:
         startTime:
           type: string
           format: date-time
-    Deployment:
+    CreateProfileRequest:
       type: object
-      description: Deployment details for the profiled application.
       properties:
-        projectId:
-          type: string
-          description: The project ID.
-        target:
-          type: string
-          description: The target of the deployment (service name).
-        labels:
-          type: object
-          additionalProperties:
+        deployment:
+          $ref: '#/components/schemas/Deployment'
+        profileType:
+          type: array
+          items:
             type: string
-          description: Labels for the deployment (e.g., zone, version).
+            enum:
+            - CPU
+            - WALL
+            - HEAP
+            - THREADS
+            - CONTENTION
+            - PEAK_HEAP
+            - HEAP_ALLOC
+      required:
+      - deployment
+      - profileType
 externalDocs:
   description: Google Cloud Profiler Documentation
   url: https://cloud.google.com/profiler/docs
