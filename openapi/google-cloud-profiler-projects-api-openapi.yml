@@ -124,30 +124,6 @@ paths:
       - Projects
 components:
   schemas:
-    ListProfilesResponse:
-      type: object
-      properties:
-        profiles:
-          type: array
-          items:
-            $ref: '#/components/schemas/Profile'
-        nextPageToken:
-          type: string
-    Deployment:
-      type: object
-      description: Deployment details for the profiled application.
-      properties:
-        projectId:
-          type: string
-          description: The project ID.
-        target:
-          type: string
-          description: The target of the deployment (service name).
-        labels:
-          type: object
-          additionalProperties:
-            type: string
-          description: Labels for the deployment (e.g., zone, version).
     Profile:
       type: object
       description: A profile resource representing collected profiling data.
@@ -182,6 +158,30 @@ components:
         startTime:
           type: string
           format: date-time
+    Deployment:
+      type: object
+      description: Deployment details for the profiled application.
+      properties:
+        projectId:
+          type: string
+          description: The project ID.
+        target:
+          type: string
+          description: The target of the deployment (service name).
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+          description: Labels for the deployment (e.g., zone, version).
+    ListProfilesResponse:
+      type: object
+      properties:
+        profiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Profile'
+        nextPageToken:
+          type: string
     CreateProfileRequest:
       type: object
       properties:
