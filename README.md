@@ -1,4 +1,4 @@
-# Google Cloud Profiler (google-cloud-profiler)
+# Google Cloud Profiler
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,63 +66,130 @@
 
 Google Cloud Profiler is a statistical, low-overhead profiling service that continuously monitors CPU usage and memory allocation in production applications. It attributes resource consumption to specific source code sections, supports Go, Java, Node.js, and Python, and provides flame graph visualizations for identifying performance bottlenecks with less than 5 percent overhead.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/google-cloud-profiler/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/google-cloud-profiler/refs/heads/main/apis.yml)
+**Areas:** CPU · Flame Graphs · Google Cloud · Memory · Observability · Performance · Profiling
 
-## Scope
+## Google Cloud Profiler on APIs.io
 
-- **Type:** Index
+Everything profiled for Google Cloud Profiler is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/google-cloud-profiler/](https://apis.io/providers/google-cloud-profiler/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (1)
 
-- CPU
-- Flame Graphs
-- Google Cloud
-- Memory
-- Observability
-- Performance
-- Profiling
+- [Google Cloud Profiler Projects API](https://apis.io/apis/google-cloud-profiler/google-cloud-profiler-projects-api/) — The Projects API from Google Cloud Profiler — 4 operation(s) for projects.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-13
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Google Cloud Profiler API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Cloud Profiler API enables creating, listing, and managing profiling profiles for applications. It supports creating profiles for CPU, heap, wall time, contention, and thread profiling types, and provides access to collected profiling data for performance analysis.
+- [Google Cloud Profiler Agentic Access](https://apis.io/agentic-access/google-cloud-profiler/google-cloud-profiler-agentic-access/)
 
-- **Human URL:** [https://cloud.google.com/profiler/docs](https://cloud.google.com/profiler/docs)
-- **Base URL:** `https://cloudprofiler.googleapis.com`
+#### Collections (3)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://cloud.google.com/profiler/docs/reference/rest)
-- [OpenAPI](openapi/openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/openapi.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/openapi.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Authentication](https://cloud.google.com/docs/authentication)
-- [Getting Started](https://cloud.google.com/profiler/docs/about-profiler)
-- [JSON Schema](json-schema/json-schema.yml) — [JSON Schema](https://json-schema.org/specification)
-- [J S O N L D Context](json-ld/json-ld.yml)
+- [Google Cloud Profiler Projects API](https://apis.io/collections/google-cloud-profiler/open-google-cloud-profiler-projects-api/)
+- [Google Cloud Profiler API](https://apis.io/collections/google-cloud-profiler/open-openapi/)
+- [Google Cloud Profiler Projects API](https://apis.io/collections/google-cloud-profiler/postman-google-cloud-profiler-projects-api/)
 
-## Common Properties
+#### Governance rules (1)
 
-- [GitHub Organization](https://github.com/GoogleCloudPlatform)
-- [Portal](https://cloud.google.com/profiler)
-- [Getting Started](https://cloud.google.com/profiler/docs/about-profiler)
+Spectral rulesets for the provider's contracts.
+
+- [Google Cloud Profiler — jsonschema rules](https://apis.io/rules/google-cloud-profiler/google-cloud-profiler-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Google Cloud Profiler Domain Security](https://apis.io/security/google-cloud-profiler/google-cloud-profiler-domain-security/)
+- [Google Cloud Profiler Vulnerability Disclosure](https://apis.io/security/google-cloud-profiler/google-cloud-profiler-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Google Cloud Profiler Plans Pricing](https://apis.io/plans/google-cloud-profiler/google-cloud-profiler-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Google Cloud Profiler Rate Limits](https://apis.io/rate-limits/google-cloud-profiler/google-cloud-profiler-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Google Cloud Profiler Finops](https://apis.io/finops/google-cloud-profiler/google-cloud-profiler-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.google.com/)
 - [Documentation](https://cloud.google.com/profiler/docs)
-- [Authentication](https://cloud.google.com/docs/authentication)
+- [Getting started](https://cloud.google.com/profiler/docs/about-profiler)
 - [Pricing](https://cloud.google.com/profiler/pricing)
-- [Terms of Service](https://cloud.google.com/terms)
-- [Privacy Policy](https://policies.google.com/privacy)
-- [Status Page](https://status.cloud.google.com/)
 - [Support](https://cloud.google.com/profiler/docs/support)
-- [J S O N L D Context](json-ld/json-ld.yml)
-- [Integrations](https://cloud.google.com/marketplace)
+- [Terms of service](https://cloud.google.com/terms)
+- [Privacy policy](https://policies.google.com/privacy)
+- [GitHub](https://github.com/GoogleCloudPlatform)
+- [Status](https://status.cloud.google.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 41.1** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 48.4 |
+| Contract governance | 9.8 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 48.8 |
+| Access clarity | 28.9 |
+
+**Agent readiness 19.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 25.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/google-cloud-profiler/](https://apis.io/providers/google-cloud-profiler/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Google Cloud Profiler: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/google-cloud-profiler/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
